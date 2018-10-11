@@ -1,12 +1,9 @@
-Napisz program, w którym stworzysz klasę Person(firstName, lastName, age, pesel).
-W osobnej klasie wczytaj od użytkownika dane o jednej osobie, utwórz obiekt tego typu
-i wyświetl informacje o tej osobie na ekranie.
-Utwórz klasy wyjątków (początkowo niekontrolowanych):
-•	NameUndefinedException – wyjątek, który powinien być rzucony,
-jeśli ktoś przy próbie utworzenia obiektu Person przekaże do konstruktora
- imię lub nazwisko będące nullem lub mające mniej niż 2 znaki
-•	IncorrectAgeException – wyjątek, który powinien być rzucony,
-jeśli ktoś przy próbie utworzenia obiektu Person przekaże do konstruktora wiek mniejszy niż 1
-Zmień typ wyjątków na kontrolowane i napraw błędy, które potencjalnie pojawiły się w projekcie.
-Obsłuż wyjątki jeśli to możliwe.
-Do sprawdzenia długości napisu wykorzystaj metodę length() klasy String, np.:
+Stwórz plik produkty.csv, a w nim zapisz kilka informacji o produktach w formacie:
+nazwa1;producent1;cena1
+nazwa2;producent2;cena2
+itd.
+Napisz program, w którym wczytasz informacje o produktach do tablicy typu Product[]. Następnie zdefiniuj metody, które obliczą i zwrócą:
+•	sumę cen wszystkich produktów
+•	najdroższy produkt
+•	*dodatkowe – zwracającą nazwę producenta, którego produktów najwięcej znajdowało się w pliku.
+Przetestuj działanie każdej z metod.
