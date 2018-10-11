@@ -15,12 +15,12 @@ public class PersonRead {
                 try {
                     person.setFirstName(bufferedReader.readLine());
                 }catch (NameUndefinedException e){
-                    System.err.println("Nie podano imienia lub podane imię składa się z jednej litery");
+                    System.err.println("Nie podano imienia lub podane imię składa się z 1 litery");
                 }
                 try {
                     person.setLastName(bufferedReader.readLine());
                 }catch (NameUndefinedException e){
-                    System.err.println("Nie podano nazwiska lub podane nazwisko składa się z jednej litery");
+                    System.err.println("Nie podano nazwiska lub podane nazwisko składa się z 1 litery");
                 }
                 try {
                     person.setAge(bufferedReader.readLine());
