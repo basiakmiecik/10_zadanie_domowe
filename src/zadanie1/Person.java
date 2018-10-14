@@ -20,9 +20,7 @@ public class Person{
         return firstName;
     }
 
-    public void setFirstName(String firstName) throws NameUndefinedException{
-        if(firstName.length()<=2 || firstName==null)
-            throw new NameUndefinedException();
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -30,9 +28,7 @@ public class Person{
         return lastName;
     }
 
-    public void setLastName(String lastName) throws NameUndefinedException{
-        if(lastName.length()<=2 || lastName==null)
-            throw new NameUndefinedException();
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -40,9 +36,7 @@ public class Person{
         return age;
     }
 
-    public void setAge(String age)throws IncorrectAgeException {
-        if(age.equals("0"))
-            throw new IncorrectAgeException();
+    public void setAge(String age) {
         this.age = age;
     }
 

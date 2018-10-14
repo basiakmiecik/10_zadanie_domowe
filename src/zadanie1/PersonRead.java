@@ -11,30 +11,53 @@ public class PersonRead {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String[] personData = new String[4];
         String line;
-        Person person= new Person();
+        String pFirstName="";
+        String pLastName="";
+        String pAge="";
+        String pPesel="";
+        boolean data=false;
             do{
                 try {
-                    person.setFirstName(bufferedReader.readLine());
-                }catch (NameUndefinedException e){
-                    System.err.println("Nie podano imienia lub podane imię składa się z 1 litery");
-                }
-                try {
-                    person.setLastName(bufferedReader.readLine());
-                }catch (NameUndefinedException e){
-                    System.err.println("Nie podano nazwiska lub podane nazwisko składa się z 1 litery");
-                }
-                try {
-                    person.setAge(bufferedReader.readLine());
+
+                   pFirstName = (bufferedReader.readLine());
+                   pLastName= (bufferedReader.readLine());
+                   pAge= (bufferedReader.readLine());
+                   data = correctData(pFirstName,pLastName,pAge);
+
                 }catch (IncorrectAgeException e){
                     System.err.println("Nie podano wieku, lub podany wiek jest mniejszy od 1");
                 }
-            person.setPesel(bufferedReader.readLine());
-        }while((line=bufferedReader.readLine()) != null);
+                catch (NameUndefinedException e){
+                    System.err.println("Podane imię bądz nazwisko jest błędne. Wczytaj poprawne dane!");
+                }
+            pPesel= (bufferedReader.readLine());
 
+            }while((line=bufferedReader.readLine()) != null);
 
             bufferedReader.close();
 
-        System.out.println(person.getFirstName()+ " "+person.getLastName()+" "+person.getAge()+" "+person.getPesel());
+            if (data){
+                Person person= new Person(pFirstName,pLastName,pAge,pPesel);
+                System.out.println(person.getFirstName()+ " "+person.getLastName()+" "
+                        +person.getAge()+" "+person.getPesel());}
+                else {
+                System.err.println("Dane były niepoprawne nie utworzono nowej osoby!");
+            }
+
         }
-    }
+
+        public static boolean correctData(String pFirstName,String pLastName, String pAge)
+                throws NameUndefinedException, IncorrectAgeException{
+        boolean data=true;
+                if (pFirstName == null || pLastName == null || pFirstName.length() < 2 || pLastName.length() < 2){
+                    data = false;
+                    throw new NameUndefinedException();
+                }
+                if (pAge.equals("0")) {
+                    data = false;
+                    throw new IncorrectAgeException();
+                }
+        return data;}
+
+}
 
