@@ -9,10 +9,17 @@ public class Person{
     public Person() {
     }
 
-    public Person(String firstName, String lastName, String age, String pesel) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+    public Person(String firstName, String lastName, String age, String pesel)
+            throws IncorrectAgeException,NameUndefinedException{
+        if (firstName == null || lastName == null || firstName.length() < 2 || lastName.length() < 2)
+            throw new NameUndefinedException();
+        else{
+            this.firstName = firstName;
+            this.lastName = lastName;}
+        if (age.equals("0")||age.equals(""))
+            throw new IncorrectAgeException();
+        else
+            this.age = age;
         this.pesel = pesel;
     }
 
